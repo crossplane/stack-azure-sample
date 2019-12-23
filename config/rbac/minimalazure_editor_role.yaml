@@ -1,0 +1,26 @@
+# permissions to do edit minimalazures.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: minimalazure-editor-role
+rules:
+- apiGroups:
+  - azure.resourcepacks.crossplane.io
+  resources:
+  - minimalazures
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - azure.resourcepacks.crossplane.io
+  resources:
+  - minimalazures/status
+  verbs:
+  - get
+  - patch
+  - update

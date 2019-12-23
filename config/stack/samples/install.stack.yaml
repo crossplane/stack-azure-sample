@@ -1,0 +1,7 @@
+---
+apiVersion: stacks.crossplane.io/v1alpha1
+kind: ClusterStackInstall
+metadata:
+  name: "muvaf-minimal-azure"
+spec:
+  package: "muvaf/minimal-azure"

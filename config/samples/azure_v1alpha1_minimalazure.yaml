@@ -1,0 +1,7 @@
+apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
+kind: MinimalAzure
+metadata:
+  name: minimalazure-sample
+spec:
+  # Add fields here
+  foo: bar
