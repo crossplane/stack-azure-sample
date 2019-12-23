@@ -30,8 +30,8 @@ type MinimalAzureSpec struct {
 	// the required credentials to connect to AWS.
 	CredentialsSecretRef v1alpha1.SecretKeySelector `json:"credentialsSecretRef"`
 
-	// Region of the resources that will be deployed.
-	Region string `json:"region"`
+	// Location of the resources that will be deployed.
+	Location string `json:"location"`
 }
 
 // MinimalAzureStatus defines the observed state of MinimalAzure

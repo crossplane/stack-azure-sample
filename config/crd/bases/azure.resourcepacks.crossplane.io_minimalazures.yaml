@@ -50,12 +50,12 @@ spec:
               - name
               - namespace
               type: object
-            region:
-              description: Region of the resources that will be deployed.
+            location:
+              description: Location of the resources that will be deployed.
               type: string
           required:
           - credentialsSecretRef
-          - region
+          - location
           type: object
         status:
           description: MinimalAzureStatus defines the observed state of MinimalAzure
