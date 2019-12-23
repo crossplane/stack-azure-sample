@@ -16,14 +16,15 @@ limitations under the License.
 package controllers
 
 import (
-	"context"
+	"github.com/muvaf/crossplane-resourcepacks/pkg/controllers"
+	"reflect"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	azurev1alpha1 "github.com/muvaf/minimal-azure/api/v1alpha1"
+	"github.com/muvaf/minimal-azure/api/v1alpha1"
 )
 
 // MinimalAzureReconciler reconciles a MinimalAzure object
@@ -33,20 +34,18 @@ type MinimalAzureReconciler struct {
 	Scheme *runtime.Scheme
 }
 
+var (
+	MinimalAzureKind             = reflect.TypeOf(v1alpha1.MinimalAzure{}).Name()
+	MinimalAzureKindAPIVersion   = MinimalAzureKind + "." + v1alpha1.GroupVersion.String()
+	MinimalAzureGroupVersionKind = v1alpha1.GroupVersion.WithKind(MinimalAzureKind)
+)
+
 // +kubebuilder:rbac:groups=azure.resourcepacks.crossplane.io,resources=minimalazures,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=azure.resourcepacks.crossplane.io,resources=minimalazures/status,verbs=get;update;patch
 
-func (r *MinimalAzureReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
-	_ = r.Log.WithValues("minimalazure", req.NamespacedName)
-
-	// your logic here
-
-	return ctrl.Result{}, nil
-}
-
 func (r *MinimalAzureReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	csr := controllers.NewResourcePackReconciler(mgr, MinimalAzureGroupVersionKind)
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&azurev1alpha1.MinimalAzure{}).
-		Complete(r)
+		For(&v1alpha1.MinimalAzure{}).
+		Complete(csr)
 }

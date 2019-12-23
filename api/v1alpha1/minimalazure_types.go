@@ -17,6 +17,8 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	"github.com/crossplaneio/crossplane-runtime/apis/core/v1alpha1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -24,21 +26,30 @@ import (
 
 // MinimalAzureSpec defines the desired state of MinimalAzure
 type MinimalAzureSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// CredentialsSecretRef refers to the secret and its key that contains
+	// the required credentials to connect to AWS.
+	CredentialsSecretRef v1alpha1.SecretKeySelector `json:"credentialsSecretRef"`
 
-	// Foo is an example field of MinimalAzure. Edit MinimalAzure_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Region of the resources that will be deployed.
+	Region string `json:"region"`
 }
 
 // MinimalAzureStatus defines the observed state of MinimalAzure
 type MinimalAzureStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	v1alpha1.ConditionedStatus `json:",inline"`
+}
+
+func (mg *MinimalAzure) GetCondition(ct v1alpha1.ConditionType) v1alpha1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+func (mg *MinimalAzure) SetConditions(c ...v1alpha1.Condition) {
+	mg.Status.SetConditions(c...)
 }
 
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Cluster
+// +kubebuilder:subresource:status
 
 // MinimalAzure is the Schema for the minimalazures API
 type MinimalAzure struct {
