@@ -1,0 +1,10 @@
+id: minimalazure
+title: Minimal Azure Environment
+titlePlural: Minimal Azure Environment
+category: Environment
+overviewShort: |
+  One click to install resource classes that are connected to each other in the
+  same network for all Azure resources.
+overview: |
+  You can use Minimal Azure to deploy a network and resource classes which allow you to deploy resources in that network with minimal
+  node configurations.

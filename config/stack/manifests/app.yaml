@@ -1,20 +1,34 @@
-title: ""
-readme: ""
-overview: ""
-overviewShort: ""
-version: 0.0.1
+title: "Minimal Azure Environment Stack"
+readme: |
+  An environment stack with built-in network and classes that let you provision
+  resources with minimal node requirements in Azure.
+overview: |
+  An environment stack with built-in network and classes that let you provision
+  resources with minimal node requirements in Azure.
+overviewShort: "Minimal environment stack for Azure."
+version: 0.1
 maintainers:
-- name: ""
-  email: ""
+  - name: "Muvaffak Onus"
+    email: "monus@upbound.io"
 owners:
-- name: ""
-  email: ""
-company: ""
-category: ""
+  - name: "Muvaffak Onus"
+    email: "monus@upbound.io"
+company: "Upbound"
+category: "Environment Stack"
 keywords:
- - "crossplane-cli"
-website: ""
-source: ""
+  - "easy"
+  - "azure"
+  - "minimal"
+  - "default"
+  - "private network"
+website: "upbound.io"
+source: "github.com/muvaf/minimal-azure"
 permissionScope: Cluster
+dependsOn:
+  - crd: '*.cache.azure.crossplane.io/v1beta1'
+  - crd: '*.compute.azure.crossplane.io/v1alpha3'
+  - crd: '*.database.azure.crossplane.io/v1beta1'
+  - crd: '*.network.azure.crossplane.io/v1alpha3'
+  - crd: '*.azure.crossplane.io/v1alpha3'
 # License SPDX name: https://spdx.org/licenses/
 license: Apache-2.0
