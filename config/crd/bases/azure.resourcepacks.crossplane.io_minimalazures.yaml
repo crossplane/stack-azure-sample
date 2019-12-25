@@ -11,6 +11,8 @@ spec:
     kind: MinimalAzure
     plural: minimalazures
   scope: Cluster
+  subresources:
+    status: {}
   validation:
     openAPIV3Schema:
       description: MinimalAzure is the Schema for the minimalazures API
@@ -30,13 +32,67 @@ spec:
         spec:
           description: MinimalAzureSpec defines the desired state of MinimalAzure
           properties:
-            foo:
-              description: Foo is an example field of MinimalAzure. Edit MinimalAzure_types.go
-                to remove/update
+            credentialsSecretRef:
+              description: CredentialsSecretRef refers to the secret and its key that
+                contains the required credentials to connect to AWS.
+              properties:
+                key:
+                  description: The key to select.
+                  type: string
+                name:
+                  description: Name of the secret.
+                  type: string
+                namespace:
+                  description: Namespace of the secret.
+                  type: string
+              required:
+              - key
+              - name
+              - namespace
+              type: object
+            location:
+              description: Location of the resources that will be deployed.
               type: string
+          required:
+          - credentialsSecretRef
+          - location
           type: object
         status:
           description: MinimalAzureStatus defines the observed state of MinimalAzure
+          properties:
+            conditions:
+              description: Conditions of the resource.
+              items:
+                description: A Condition that may apply to a managed resource.
+                properties:
+                  lastTransitionTime:
+                    description: LastTransitionTime is the last time this condition
+                      transitioned from one status to another.
+                    format: date-time
+                    type: string
+                  message:
+                    description: A Message containing details about this condition's
+                      last transition from one status to another, if any.
+                    type: string
+                  reason:
+                    description: A Reason for this condition's last transition from
+                      one status to another.
+                    type: string
+                  status:
+                    description: Status of this condition; is it currently True, False,
+                      or Unknown?
+                    type: string
+                  type:
+                    description: Type of this condition. At most one of each condition
+                      type may apply to a resource at any point in time.
+                    type: string
+                required:
+                - lastTransitionTime
+                - reason
+                - status
+                - type
+                type: object
+              type: array
           type: object
       type: object
   version: v1alpha1

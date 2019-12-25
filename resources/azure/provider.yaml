@@ -1,0 +1,9 @@
+apiVersion: azure.crossplane.io/v1alpha3
+kind: Provider
+metadata:
+  name: azure-provider
+spec:
+  credentialsSecretRef:
+    namespace: $(CRED_SECRET_NAMESPACE)
+    name: $(CRED_SECRET_NAME)
+    key: $(CRED_SECRET_KEY)
