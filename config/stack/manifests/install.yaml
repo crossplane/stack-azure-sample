@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "muvaf-minimal-azure"
+  name: "crossplaneio-minimal-azure"
   labels:
-    core.crossplane.io/name: "muvaf-minimal-azure"
+    core.crossplane.io/name: "crossplaneio-minimal-azure"
 spec:
   selector:
     matchLabels:
-      core.crossplane.io/name: "muvaf-minimal-azure"
+      core.crossplane.io/name: "crossplaneio-minimal-azure"
   replicas: 1
   template:
     metadata:
-      name: "muvaf-minimal-azure-controller"
+      name: "crossplaneio-minimal-azure-controller"
       labels:
-        core.crossplane.io/name: "muvaf-minimal-azure"
+        core.crossplane.io/name: "crossplaneio-minimal-azure"
     spec:
       containers:
-      - name: "muvaf-minimal-azure-controller"
-        image: "muvaf/minimal-azure"
+      - name: "crossplaneio-minimal-azure-controller"
+        image: "crossplaneio/minimal-azure:1.0"
         env:
         - name: POD_NAME
           valueFrom:
