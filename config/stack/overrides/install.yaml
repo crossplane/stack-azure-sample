@@ -2,5 +2,5 @@ spec:
   template:
     spec:
       containers:
-      - name: "muvaf-minimal-azure-controller"
-        image: "localhost:5000/muvaf/minimal-azure"
+      - name: "crossplaneio-minimal-azure-controller"
+        image: "localhost:5000/crossplaneio/minimal-azure"

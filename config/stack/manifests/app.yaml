@@ -1,12 +1,12 @@
-title: "Minimal Azure Environment Stack"
+title: "Minimal Azure Environment"
 readme: |
-  An environment stack with built-in network and classes that let you provision
+  An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
 overview: |
-  An environment stack with built-in network and classes that let you provision
+  An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
-overviewShort: "Minimal environment stack for Azure."
-version: 0.1
+overviewShort: "Minimal environment for Azure."
+version: 1.0
 maintainers:
   - name: "Muvaffak Onus"
     email: "monus@upbound.io"
@@ -22,7 +22,7 @@ keywords:
   - "default"
   - "private network"
 website: "upbound.io"
-source: "github.com/muvaf/minimal-azure"
+source: "github.com/crossplaneio/minimal-azure"
 permissionScope: Cluster
 dependsOn:
   - crd: '*.cache.azure.crossplane.io/v1beta1'
