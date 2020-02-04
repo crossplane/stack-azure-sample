@@ -1,5 +1,5 @@
 domain: resourcepacks.crossplane.io
-repo: github.com/crossplaneio/minimal-azure
+repo: github.com/crossplaneio/stack-minimal-azure
 resources:
 - group: azure
   kind: MinimalAzure

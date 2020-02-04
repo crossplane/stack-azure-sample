@@ -19,8 +19,8 @@ import (
 	"flag"
 	"os"
 
-	azurev1alpha1 "github.com/crossplaneio/minimal-azure/api/v1alpha1"
-	"github.com/crossplaneio/minimal-azure/controllers"
+	azurev1alpha1 "github.com/crossplaneio/stack-minimal-azure/api/v1alpha1"
+	"github.com/crossplaneio/stack-minimal-azure/controllers"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"

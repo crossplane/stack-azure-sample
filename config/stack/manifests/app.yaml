@@ -22,7 +22,7 @@ keywords:
   - "default"
   - "private network"
 website: "upbound.io"
-source: "github.com/crossplaneio/minimal-azure"
+source: "github.com/crossplaneio/stack-minimal-azure"
 permissionScope: Cluster
 dependsOn:
   - crd: '*.cache.azure.crossplane.io/v1beta1'

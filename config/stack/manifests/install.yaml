@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: "crossplaneio-minimal-azure-controller"
-        image: "crossplaneio/minimal-azure:1.0"
+        image: "crossplane/stack-minimal-azure:1.0"
         env:
         - name: POD_NAME
           valueFrom:
