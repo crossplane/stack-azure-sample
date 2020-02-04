@@ -1,0 +1,12 @@
+apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
+kind: MinimalAzure
+metadata:
+  name: test
+  annotations:
+    "resourcepacks.crossplane.io/keep-defaulting-annotations": "true"
+spec:
+  location: West US
+  credentialsSecretRef:
+    name: azure-account-creds
+    namespace: crossplane-system
+    key: credentials
