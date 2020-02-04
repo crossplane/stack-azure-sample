@@ -2,5 +2,5 @@ spec:
   template:
     spec:
       containers:
-      - name: "crossplaneio-minimal-azure-controller"
+      - name: "stack-minimal-azure-controller"
         image: "localhost:5000/crossplane/stack-minimal-azure"
