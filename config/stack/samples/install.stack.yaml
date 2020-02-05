@@ -4,4 +4,4 @@ kind: ClusterStackInstall
 metadata:
   name: "crossplaneio-minimal-azure"
 spec:
-  package: "crossplaneio/minimal-azure"
+  package: "crossplane/stack-minimal-azure"

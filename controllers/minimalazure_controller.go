@@ -16,7 +16,7 @@ limitations under the License.
 package controllers
 
 import (
-	"github.com/muvaf/crossplane-resourcepacks/pkg/controllers"
+	"github.com/crossplaneio/resourcepacks/pkg/controllers"
 	"reflect"
 
 	"github.com/go-logr/logr"
@@ -24,7 +24,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/crossplaneio/minimal-azure/api/v1alpha1"
+	"github.com/crossplaneio/stack-minimal-azure/api/v1alpha1"
 )
 
 // MinimalAzureReconciler reconciles a MinimalAzure object

@@ -3,4 +3,4 @@ spec:
     spec:
       containers:
       - name: "crossplaneio-minimal-azure-controller"
-        image: "localhost:5000/crossplaneio/minimal-azure"
+        image: "localhost:5000/crossplane/stack-minimal-azure"
