@@ -6,7 +6,7 @@ overview: |
   An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
 overviewShort: "Minimal environment for Azure."
-version: 1.0
+version: 0.0.1
 maintainers:
   - name: "Muvaffak Onus"
     email: "monus@upbound.io"
@@ -22,7 +22,7 @@ keywords:
   - "default"
   - "private network"
 website: "upbound.io"
-source: "github.com/crossplaneio/stack-minimal-azure"
+source: "https://github.com/crossplaneio/stack-minimal-azure"
 permissionScope: Cluster
 dependsOn:
   - crd: '*.cache.azure.crossplane.io/v1beta1'
