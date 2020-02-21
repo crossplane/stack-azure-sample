@@ -11,7 +11,7 @@ specTemplate:
     name: resourcegroup
   vnetSubnetIDRef:
     name: subnet
-  location: Central US
+  location: $(LOCATION)
   version: "1.14.8"
   nodeCount: 1
   nodeVMSize: Standard_B2s
