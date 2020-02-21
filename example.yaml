@@ -2,8 +2,9 @@ apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
 kind: MinimalAzure
 metadata:
   name: test
-  annotations:
-    "resourcepacks.crossplane.io/keep-defaulting-annotations": "true"
+#  Enable this annotation if you are deploying more than one instance of this stack.
+#  annotations:
+#    "templatestacks.crossplane.io/remove-defaulting-annotations": "true"
 spec:
   location: West US
   credentialsSecretRef:

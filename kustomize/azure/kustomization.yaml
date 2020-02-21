@@ -1,0 +1,19 @@
+configurations:
+  - kustomizeconfig.yaml
+
+resources:
+  - cache
+  - compute
+  - database
+  - network
+  - provider.yaml
+  - resourcegroup.yaml
+
+vars:
+  - name: LOCATION
+    objref:
+      kind: ResourceGroup
+      apiVersion: azure.crossplane.io/v1alpha3
+      name: resourcegroup
+    fieldref:
+      fieldpath: spec.location

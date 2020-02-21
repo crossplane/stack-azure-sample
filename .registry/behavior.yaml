@@ -1,0 +1,22 @@
+source:
+  image: crossplane/stack-minimal-azure:v0.2.0
+  path: "kustomize"
+crd:
+  kind: MinimalAzure
+  apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
+engine:
+  type: kustomize
+  kustomize:
+    overlays:
+      - apiVersion: azure.crossplane.io/v1alpha3
+        kind: Provider
+        name: azure-provider
+        bindings:
+          - from: "spec.credentialsSecretRef"
+            to: "spec.credentialsSecretRef"
+      - apiVersion: azure.crossplane.io/v1alpha3
+        kind: ResourceGroup
+        name: resourcegroup
+        bindings:
+          - from: "spec.location"
+            to: "spec.location"

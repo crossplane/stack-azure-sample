@@ -1,0 +1,15 @@
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: MySQLServerVirtualNetworkRule
+metadata:
+  name: test-vnetrule
+spec:
+  name: test-vnetrule
+  serverName: <fill with mysqlserver.azure.crossplane.io instance name>
+  resourceGroupNameRef:
+    name: test-resourcegroup
+  properties:
+    virtualNetworkSubnetIdRef:
+      name: test-subnet
+  reclaimPolicy: Delete
+  providerRef:
+    name: test-azure-provider
