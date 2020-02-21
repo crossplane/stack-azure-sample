@@ -1,4 +1,4 @@
-version: 1.0
+version: v0.2.0
 configSections:
 - title: Minimal Azure Configuration
   description: Enter the configuration parameters for your resource pack.
