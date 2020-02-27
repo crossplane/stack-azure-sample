@@ -1,5 +1,5 @@
 source:
-  image: crossplane/stack-minimal-azure:v0.2.0
+  image: crossplane/stack-minimal-azure:v0.2.1
   path: "kustomize"
 crd:
   kind: MinimalAzure
