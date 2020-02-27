@@ -16,6 +16,8 @@ az ad app permission add --id "${AZURE_CLIENT_ID}" --api 00000002-0000-0000-c000
 # grant (activate) the permissions
 az ad app permission grant --id "${AZURE_CLIENT_ID}" --api 00000002-0000-0000-c000-000000000000 --expires never > /dev/null
 
+az ad app permission admin-consent --id "${AZURE_CLIENT_ID}"
+
 cat <<EOS
 
 ********************
