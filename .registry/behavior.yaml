@@ -1,10 +1,11 @@
 source:
-  image: crossplane/stack-minimal-azure:v0.2.0
+  image: crossplane/stack-minimal-azure:v0.2.1
   path: "kustomize"
 crd:
   kind: MinimalAzure
   apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
 engine:
+  controllerImage: crossplane/templating-controller:v0.2.1
   type: kustomize
   kustomize:
     overlays:
