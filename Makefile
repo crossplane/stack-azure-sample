@@ -1,4 +1,4 @@
-STACK_VERSION ?= v0.2.0
+STACK_VERSION ?= v0.2.1
 STACK_IMG ?= crossplane/stack-minimal-azure:$(STACK_VERSION)
 
 build:
