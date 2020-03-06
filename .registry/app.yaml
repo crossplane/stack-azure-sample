@@ -30,5 +30,6 @@ dependsOn:
   - crd: '*.database.azure.crossplane.io/v1beta1'
   - crd: '*.network.azure.crossplane.io/v1alpha3'
   - crd: '*.azure.crossplane.io/v1alpha3'
+  - package: 'crossplane/provider-azure'
 # License SPDX name: https://spdx.org/licenses/
 license: Apache-2.0
