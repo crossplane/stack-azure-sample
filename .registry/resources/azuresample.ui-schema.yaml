@@ -51,7 +51,7 @@ configSections:
   items:
   - name: additionalInfoSnippet
     controlType: codeSnippet
-    codeText: curl -s https://raw.githubusercontent.com/crossplane/stack-minimal-azure/master/hack/azure-credentials.sh | bash -
+    codeText: curl -s https://raw.githubusercontent.com/crossplane/stack-azure-sample/master/hack/azure-credentials.sh | bash -
 - title: Enter Your Generated Provider Secret
   description: Once you have successfully generated the provider secret using the command above you can now enter it below.
   items:
