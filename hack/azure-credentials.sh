@@ -24,5 +24,5 @@ cat <<EOS
 $(cat $KEYFILE)
 ********************
 
-Your Minimal Azure Stack keyfile is shown above, between the asterisks.
+Your Stack Azure Sample keyfile is shown above, between the asterisks.
 EOS
