@@ -45,7 +45,7 @@ and the following resource classes with minimal hardware requirements that will 
 
 ```yaml
 # you can find this in example.yaml
-apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
+apiVersion: azure.stacks.crossplane.io/v1alpha1
 kind: AzureSample
 metadata:
   name: test

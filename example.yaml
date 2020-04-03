@@ -1,4 +1,4 @@
-apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
+apiVersion: azure.stacks.crossplane.io/v1alpha1
 kind: AzureSample
 metadata:
   name: test
