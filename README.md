@@ -1,4 +1,4 @@
-# Minimal Azure Environment Stack
+# Azure Sample Stack
 
 You can use this stack to spin up a private network as well as
 resource classes that will let you provision resources in that
@@ -8,13 +8,13 @@ network.
 
 Requirements:
 * Crossplane should be installed.
-* [Azure Stack][stack-azure] should be installed and its version should be at least 0.5.0
+* [Azure Provider][provider-azure] should be installed and its version should be at least 0.7.0
 
 If you have [crossplane-cli][crossplane-cli] installed, you can use the following command to install:
 
 ```bash
 # Do not forget to change <version> with the correct version.
-kubectl crossplane stack install --cluster -n crossplane-system 'crossplane/stack-minimal-azure:<version>' minimal-azure
+kubectl crossplane stack install --cluster -n crossplane-system 'crossplane/stack-azure-sample:<version>' azure-sample
 ```
 
 If you don't have [crossplane-cli][crossplane-cli] installed, you need to create the following YAML to install:
@@ -23,10 +23,10 @@ If you don't have [crossplane-cli][crossplane-cli] installed, you need to create
 apiVersion: stacks.crossplane.io/v1alpha1
 kind: ClusterStackInstall
 metadata:
-  name: "minimal-azure"
+  name: "azure-sample"
   namespace: crossplane-system
 spec:
-  package: "crossplane/stack-minimal-azure:<version>"
+  package: "crossplane/stack-azure-sample:<version>"
 ```
 
 # Usage Instructions
@@ -45,8 +45,8 @@ and the following resource classes with minimal hardware requirements that will 
 
 ```yaml
 # you can find this in example.yaml
-apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
-kind: MinimalAzure
+apiVersion: azure.stacks.crossplane.io/v1alpha1
+kind: AzureSample
 metadata:
   name: test
 spec:
@@ -58,7 +58,7 @@ spec:
 
 ```
 
-In Crossplane, the resource classes that are annotated with `resourceclass.crossplane.io/is-default-class: "true"` are used as default if the claim doesn't specify a resource class selector. The resource classes you create via the `MinimalAzure` instance above will deploy all of its resource classes as default. If you'd like those defaulting annotations to be removed, you need to add the following to `MinimalAzure` instance above:
+In Crossplane, the resource classes that are annotated with `resourceclass.crossplane.io/is-default-class: "true"` are used as default if the claim doesn't specify a resource class selector. The resource classes you create via the `AzureSample` instance above will deploy all of its resource classes as default. If you'd like those defaulting annotations to be removed, you need to add the following to `AzureSample` instance above:
 
 ```yaml
 templatestacks.crossplane.io/remove-defaulting-annotations: true
@@ -89,9 +89,9 @@ spec:
 
 The value of `spec.serverName` should be populated with the name of the `MySQLServer` resource you have, for example `default-test-mysqlserver-4sds5`.
 
-Other thing is that `spec.providerRef`, `spec.properties.virtualNetworkSubnetIdRef` and `spec.resourceGroupNameRef` have `test-` prefix which is how the resources are named if you deploy the example in this repo. If you choose to create `MinimalAzure` instance with a different name, do not forget to use `<MinimalAzure name>-` prefix instead of `test-`
+Other thing is that `spec.providerRef`, `spec.properties.virtualNetworkSubnetIdRef` and `spec.resourceGroupNameRef` have `test-` prefix which is how the resources are named if you deploy the example in this repo. If you choose to create `AzureSample` instance with a different name, do not forget to use `<AzureSample name>-` prefix instead of `test-`
 
-Since this `MySQLServerVirtualNetworkRule` is created manually, it won't be cleaned up when you delete your `MinimalAzure` instance.
+Since this `MySQLServerVirtualNetworkRule` is created manually, it won't be cleaned up when you delete your `AzureSample` instance.
 
 ## Build
 
@@ -105,12 +105,12 @@ Run `make` and then run the following command to copy the image into your miniku
 
 ```bash
 # Do not forget to specify <version>
-docker save "crossplane/stack-minimal-azure:<version>" | (eval "$(minikube docker-env --shell bash)" && docker load)
+docker save "crossplane/stack-azure-sample:<version>" | (eval "$(minikube docker-env --shell bash)" && docker load)
 ```
 
 After running this, you can use the [installation](#installation) command and the image loaded into minikube node will be picked up. 
 
-[stack-azure]: https://github.com/crossplane/stack-azure
+[provider-azure]: https://github.com/crossplane/provider-azure
 [crossplane-cli]: https://github.com/crossplane/crossplane-cli
 
 [virtual-network]: kustomize/azure/network/virtualnetwork.yaml

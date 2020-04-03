@@ -1,11 +1,11 @@
-title: "Minimal Azure Environment"
+title: "Stack Azure Sample"
 readme: |
   An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
 overview: |
   An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
-overviewShort: "Minimal environment for Azure."
+overviewShort: "Sample stack for Azure."
 maintainers:
   - name: "Muvaffak Onus"
     email: "monus@upbound.io"
@@ -18,11 +18,11 @@ packageType: "Stack"
 keywords:
   - "easy"
   - "azure"
-  - "minimal"
+  - "sample"
   - "default"
   - "private network"
 website: "upbound.io"
-source: "https://github.com/crossplaneio/stack-minimal-azure"
+source: "https://github.com/crossplaneio/stack-azure-sample"
 permissionScope: Cluster
 dependsOn:
   - crd: '*.cache.azure.crossplane.io/v1beta1'

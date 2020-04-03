@@ -1,5 +1,5 @@
-apiVersion: azure.resourcepacks.crossplane.io/v1alpha1
-kind: MinimalAzure
+apiVersion: azure.stacks.crossplane.io/v1alpha1
+kind: AzureSample
 metadata:
   name: test
 #  Enable this annotation if you are deploying more than one instance of this stack.
