@@ -1,4 +1,4 @@
-title: "Stack Azure Sample"
+title: "Azure Sample Stack"
 readme: |
   An environment with built-in network and classes that let you provision
   resources with minimal node requirements in Azure.
