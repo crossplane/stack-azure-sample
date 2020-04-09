@@ -4,7 +4,6 @@ kind: ResourceGroup
 metadata:
   name: resourcegroup
 spec:
-  name: resourcegroup
   location: Central US
   reclaimPolicy: Delete
   providerRef:

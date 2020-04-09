@@ -17,9 +17,6 @@ specTemplate:
   nodeVMSize: Standard_B2s
   dnsNamePrefix: crossplane-aks
   disableRBAC: false
-  writeServicePrincipalTo:
-    name: akscluster-net
-    namespace: crossplane-system
   reclaimPolicy: Delete
   providerRef:
     name: azure-provider

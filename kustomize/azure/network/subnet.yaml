@@ -4,7 +4,6 @@ kind: Subnet
 metadata:
   name: subnet
 spec:
-  name: subnet
   resourceGroupNameRef:
     name: resourcegroup
   virtualNetworkNameRef:
