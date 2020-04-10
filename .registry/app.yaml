@@ -13,7 +13,7 @@ owners:
   - name: "Muvaffak Onus"
     email: "monus@upbound.io"
 company: "Crossplane"
-category: "Environment Stack"
+category: "Sample Stack"
 packageType: "Stack"
 keywords:
   - "easy"
