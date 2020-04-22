@@ -7,13 +7,25 @@ nameReference:
     fieldSpecs:
       - path: specTemplate/providerRef/name
         kind: SQLServerClass
+      - path: spec/to/base/spec/providerRef/name
+        kind: Composition
   - kind: ResourceGroup
     fieldSpecs:
       - path: specTemplate/forProvider/resourceGroupNameRef/name
         kind: SQLServerClass
+      - path: spec/to/base/spec/forProvider/resourceGroupNameRef/name
+        kind: Composition
+      - path: spec/to/base/spec/resourceGroupNameRef/name
+        kind: Composition
+  - kind: Subnet
+    fieldSpecs:
+      - path: spec/to/base/spec/properties/virtualNetworkSubnetIdRef/name
+        kind: Composition
 
 # varReference is the list of fields that we tell Kustomize to process for
 # variants.
 varReference:
   - kind: SQLServerClass
     path: specTemplate/forProvider/location
+  - kind: Composition
+    path: spec/to/base/spec/forProvider/location

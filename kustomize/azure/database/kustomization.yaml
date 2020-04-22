@@ -3,3 +3,4 @@ configurations:
 
 resources:
   - sqlserverclass.yaml
+  - mysqlcomp.yaml

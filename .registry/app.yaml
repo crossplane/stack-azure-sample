@@ -25,11 +25,12 @@ website: "https://crossplane.io"
 source: "https://github.com/crossplane/stack-azure-sample"
 permissionScope: Cluster
 dependsOn:
-  - crd: '*.cache.azure.crossplane.io/v1beta1'
-  - crd: '*.compute.azure.crossplane.io/v1alpha3'
-  - crd: '*.database.azure.crossplane.io/v1beta1'
-  - crd: '*.network.azure.crossplane.io/v1alpha3'
-  - crd: '*.azure.crossplane.io/v1alpha3'
+  - crd: 'compositions.apiextensions.crossplane.io'
+  - crd: '*.cache.azure.crossplane.io'
+  - crd: '*.compute.azure.crossplane.io'
+  - crd: '*.database.azure.crossplane.io'
+  - crd: '*.network.azure.crossplane.io'
+  - crd: '*.azure.crossplane.io'
   - package: 'crossplane/provider-azure'
 # License SPDX name: https://spdx.org/licenses/
 license: Apache-2.0
