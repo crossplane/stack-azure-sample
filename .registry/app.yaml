@@ -1,11 +1,27 @@
 title: "Azure Sample Stack"
-readme: |
-  An environment with built-in network and classes that let you provision
-  resources with minimal node requirements in Azure.
+overviewShort: |
+  Configures an Azure environment with basic networking, security, and
+  default resource classes for applications to use.
 overview: |
-  An environment with built-in network and classes that let you provision
-  resources with minimal node requirements in Azure.
-overviewShort: "Sample stack for Azure."
+  Configures an Azure environment with basic networking, security,
+  and default resource classes that provide a self-service catalog for
+  applications to use.
+readme: |
+  The `Azure Sample Stack` configures the neccesary cloud resources and
+  self-service catalog to deploy basic applications like `Wordpress`.
+
+  The managed resources configured by this stack include:
+  `ResourceGroup`, `VirtualNetwork`, and `Subnet`.
+
+  This stack offers the following resource classes for applications to
+  use: `AKSClusterClass`, `SQLServerClass`, and a `RedisClass`.
+
+  The `Azure Sample Stack` also configures a `Provider` connection
+  resource, so the `Azure Provider` can communicate with Azure API.
+
+  [Learn More on GitHub](https://github.com/crossplane/stack-azure-sample)
+  to see the complete `kustomize` templates used in this stack and as a
+  starting point for building your own stack.
 maintainers:
   - name: "Muvaffak Onus"
     email: "monus@upbound.io"
