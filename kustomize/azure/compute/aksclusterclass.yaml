@@ -12,7 +12,7 @@ specTemplate:
   vnetSubnetIDRef:
     name: subnet
   location: $(LOCATION)
-  version: "1.14.8"
+  version: "1.15.10"
   nodeCount: 1
   nodeVMSize: Standard_B2s
   dnsNamePrefix: crossplane-aks
