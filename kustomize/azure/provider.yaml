@@ -6,6 +6,6 @@ metadata:
     templatestacks.crossplane.io/deletion-priority: "-1"
 spec:
   credentialsSecretRef:
-    namespace: $(CRED_SECRET_NAMESPACE)
-    name: $(CRED_SECRET_NAME)
-    key: $(CRED_SECRET_KEY)
+    name: azure-account-creds
+    namespace: crossplane-system
+    key: credentials
