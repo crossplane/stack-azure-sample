@@ -2,6 +2,8 @@ apiVersion: azure.crossplane.io/v1alpha3
 kind: Provider
 metadata:
   name: azure-provider
+  annotations:
+    templatestacks.crossplane.io/deletion-priority: "-1"
 spec:
   credentialsSecretRef:
     namespace: $(CRED_SECRET_NAMESPACE)
