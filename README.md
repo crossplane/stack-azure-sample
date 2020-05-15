@@ -20,8 +20,8 @@ kubectl crossplane package install --cluster -n crossplane-system 'crossplane/st
 If you don't have [crossplane-cli][crossplane-cli] installed, you need to create the following YAML to install:
 
 ```yaml
-apiVersion: stacks.crossplane.io/v1alpha1
-kind: ClusterStackInstall
+apiVersion: packages.crossplane.io/v1alpha1
+kind: ClusterPackageInstall
 metadata:
   name: "azure-sample"
   namespace: crossplane-system
