@@ -1,0 +1,74 @@
+apiVersion: apiextensions.crossplane.io/v1alpha1
+kind: Composition
+metadata:
+  name: mysqlcomposition
+  labels:
+    connectivity: private
+spec:
+  writeConnectionSecretsToNamespace: crossplane-system
+  reclaimPolicy: Delete
+  from:
+    apiVersion: database.crossplane.io/v1alpha1
+    kind: MySQL
+  to:
+    - base:
+        apiVersion: database.azure.crossplane.io/v1beta1
+        kind: MySQLServer
+        spec:
+          forProvider:
+            administratorLogin: myadmin
+            resourceGroupNameRef:
+              name: resourcegroup
+            location: $(LOCATION)
+            sslEnforcement: Disabled
+            version: "5.6"
+            sku:
+              # Basic tier does not support VNet connection rule.
+              tier: GeneralPurpose
+              capacity: 2
+              family: Gen5
+            storageProfile:
+              storageMB: 8192
+              backupRetentionDays: 7
+              geoRedundantBackup: Disabled
+          writeConnectionSecretToRef:
+            namespace: crossplane-system
+          providerRef:
+            name: azure-provider
+          reclaimPolicy: Delete
+      patches:
+      - fromFieldPath: "metadata.uid"
+        toFieldPath: "spec.writeConnectionSecretToRef.name"
+      - fromFieldPath: "spec.engineVersion"
+        toFieldPath: "spec.forProvider.version"
+      - fromFieldPath: "spec.storageGB"
+        toFieldPath: "spec.forProvider.storageMB"
+        transforms:
+          - type: math
+            math:
+              multiply: 1024
+      connectionDetails:
+        - name: username
+          fromConnectionSecretKey: username
+        - name: password
+          fromConnectionSecretKey: password
+        - name: endpoint
+          fromConnectionSecretKey: endpoint
+    - base:
+        apiVersion: database.azure.crossplane.io/v1alpha3
+        kind: MySQLServerVirtualNetworkRule
+        spec:
+          name: virtualnetworkrule
+          serverNameSelector:
+            matchControllerRef: true
+          resourceGroupNameRef:
+            name: resourcegroup
+          properties:
+            virtualNetworkSubnetIdRef:
+              name: subnet
+          reclaimPolicy: Delete
+          providerRef:
+            name: azure-provider
+      patches:
+      - fromFieldPath: "metadata.name"
+        toFieldPath: "spec.name"
